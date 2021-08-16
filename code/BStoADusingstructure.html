@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prism.css" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Code</title>
+</head>
+
+<body>
+    <pre><code class="language-C">
+//Write a C program to convert date in B.S. to data in A.D. using structure.
+// Use the data difference of current date. [Since there is no direct relation
+// between B.S. to A.D. most of the time the answer will be incorrect]
+#include &ltstdio.h>
+#include &ltconio.h>
+#include &ltstdlib.h>
+#include &ltstring.h>
+
+void main()
+{
+    struct dateconversion
+    {
+        int yy;
+        int mm;
+        int dd;
+    };
+    struct dateconversion BS, AD;
+    char monthAD[10];
+    int i;
+    char month[12][10] = {"jan", "Feb", "March", "April", "May", "June", "July", "Aug", "sept", "Oct", "Nov", "Dec"};
+    system("cls");
+    printf("Enter the year month and date you want to convert in the format : yy-mm-dd : ");
+    scanf("%d-%d-%d", &BS.yy, &BS.mm, &BS.dd);
+    if (BS.dd <= 16)
+    {
+        BS.dd = BS.dd + 30;
+        BS.mm = BS.mm - 1;
+    }
+    if (BS.mm <= 8)
+    {
+        BS.mm = BS.mm + 12;
+        BS.yy = BS.yy - 1;
+    }
+    AD.yy = BS.yy - 56;
+    AD.mm = BS.mm - 8;
+    AD.dd = BS.dd - 16;
+    switch (AD.mm)
+    {
+    case 1:
+        strcpy(monthAD, month[0]);
+        break;
+    case 2:
+        strcpy(monthAD, month[1]);
+        break;
+    case 3:
+        strcpy(monthAD, month[2]);
+        break;
+    case 4:
+        strcpy(monthAD, month[3]);
+        break;
+    case 5:
+        strcpy(monthAD, month[4]);
+        break;
+    case 6:
+        strcpy(monthAD, month[5]);
+        break;
+    case 7:
+        strcpy(monthAD, month[6]);
+        break;
+    case 8:
+        strcpy(monthAD, month[7]);
+        break;
+    case 9:
+        strcpy(monthAD, month[8]);
+        break;
+    case 10:
+        strcpy(monthAD, month[9]);
+        break;
+    case 11:
+        strcpy(monthAD, month[10]);
+        break;
+    case 12:
+        strcpy(monthAD, month[11]);
+        break;
+
+    default:
+        break;
+    }
+    printf("The Date in AD is : %d-%d-%d\n", AD.yy, AD.mm, AD.dd);
+    printf("The Date in AD is : %d-%s-%d", AD.yy, monthAD, AD.dd);
+}
+     </code></pre>
+</body>
+<script src="prism.js"></script>
+
+</html>

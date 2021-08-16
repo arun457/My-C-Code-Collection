@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prism.css" type="text/css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <title>Code</title>
+</head>
+
+<body>
+    <pre><code class="language-C">
+//WAP to declare the structure student with member
+//name and rollno. Declare another structure date as the member of student with
+//member day, month and year. Input the name, roll and date of birth and display
+// the records of 5 students. [10]
+
+#include &ltstdio.h>
+#include &ltconio.h>
+#include &ltstdlib.h>
+#define loopsize 2
+
+struct date
+{
+    int year;
+    int month;
+    int day;
+};
+
+struct student
+{
+    char name[50];
+    int rollno;
+    struct date dob;
+};
+
+void main()
+{
+    struct student s[loopsize];
+    int i, j;
+    system("cls");
+    printf("Enter the name roll-no and DOB of 5 Students\n");
+    for (i = 0; i < loopsize; i++)
+    {
+        printf("Enter the credential of %dth student : \n", i);
+        printf("Enter name : ");
+        scanf("%s", &s[i].name);
+        printf("Enter roll-no : ");
+        scanf("%d", &s[i].rollno);
+        printf("Enter DOB : ");
+        scanf("%d%d%d", &s[i].dob.year, &s[i].dob.month, &s[i].dob.day);
+    }
+
+    printf("The name roll-no and DOB of 5 Students : \n");
+    printf("Name\tRoll-no\tDOB\n");
+    for (i = 0; i < loopsize; i++)
+    {
+
+        printf("%s\t", s[i].name);
+        printf("%d\t", s[i].rollno);
+        printf("%d-%d-%d", s[i].dob.year, s[i].dob.month, s[i].dob.day);
+        printf("\n");
+    }
+}
+     </code></pre>
+</body>
+<script src="prism.js"></script>
+
+</html>
